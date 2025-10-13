@@ -13,7 +13,7 @@ cargo build --release -p anvil -p cast
 
 Usage:
 
-- anvil: `target/release/anvil`
+- anvil: `target/release/anvil --code-size-limit 131072 --gas-limit 200000000`
 - cast: `target/release/cast`
 
 
