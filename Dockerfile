@@ -18,7 +18,11 @@ COPY . .
 # see <https://github.com/foundry-rs/foundry/issues/7925>
 RUN git update-index --force-write-index
 
-RUN --mount=type=cache,target=/root/.cargo/registry --mount=type=cache,target=/root/.cargo/git --mount=type=cache,target=/opt/foundry/target \
+ENV CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse
+
+RUN --mount=type=cache,target=/root/.cargo/registry,sharing=locked \
+    --mount=type=cache,target=/root/.cargo/git,sharing=locked \
+    --mount=type=cache,target=/opt/foundry/target,sharing=locked \
     source $HOME/.profile && cargo build --release --features anvil/js-tracer,cast/aws-kms,cast/gcp-kms,forge/aws-kms,forge/gcp-kms \
     && mkdir out \
     && mv target/release/forge out/forge \
@@ -48,7 +52,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.description="Foundry" \
       org.label-schema.url="https://getfoundry.sh" \
       org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url="https://github.com/foundry-rs/foundry.git" \
+      org.label-schema.vcs-url="https://github.com/Jayakumar2812/foundry_monad.git" \
       org.label-schema.vendor="Foundry-rs" \
       org.label-schema.version=$VERSION \
       org.label-schema.schema-version="1.0"

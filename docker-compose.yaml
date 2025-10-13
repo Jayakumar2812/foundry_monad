@@ -1,0 +1,26 @@
+services:
+  anvil:
+    image: docker.io/jayakumar2812/foundry-monad:latest
+    command: >
+      anvil --host ${HOST:-0.0.0.0}
+      --code-size-limit ${CODE_SIZE_LIMIT:-131072}
+      --gas-limit ${GAS_LIMIT:-200000000}
+    environment:
+      HOST: ${HOST:-0.0.0.0}
+      CODE_SIZE_LIMIT: ${CODE_SIZE_LIMIT:-131072}
+      GAS_LIMIT: ${GAS_LIMIT:-200000000}
+    ports:
+      - "8545:8545"
+    restart: unless-stopped
+    volumes:
+      - anvil-data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "cast block-number -r http://127.0.0.1:8545 >/dev/null 2>&1 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  anvil-data:
+
+
