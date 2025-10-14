@@ -47,6 +47,8 @@ RUN adduser -Du 1000 foundry
 
 ENTRYPOINT ["/bin/sh", "-c"]
 
+EXPOSE 8545
+
 LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.name="Foundry" \
       org.label-schema.description="Foundry" \
