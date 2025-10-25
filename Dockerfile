@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.4
 
-FROM alpine:3.22 AS build-environment
+FROM alpine:latest AS build-environment
 
 ARG TARGETARCH
 WORKDIR /opt
@@ -34,7 +34,7 @@ RUN --mount=type=cache,target=/root/.cargo/registry,sharing=locked \
     && strip out/chisel \
     && strip out/anvil;
 
-FROM alpine:3.22 AS foundry-client
+FROM alpine:latest AS foundry-client
 
 RUN apk add --no-cache linux-headers git gcompat libstdc++
 
@@ -58,3 +58,4 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.vendor="Foundry-rs" \
       org.label-schema.version=$VERSION \
       org.label-schema.schema-version="1.0"
+
