@@ -397,9 +397,24 @@ snapbox = { version = "0.6", features = ["json", "regex", "term-svg"] }
 # See the `idna_adapter` README.md for more details: https://docs.rs/crate/idna_adapter/latest
 idna_adapter = "=1.1.0"
 
+
+
 [patch.crates-io]
 # https://github.com/rust-cli/rexpect/pull/106
 rexpect = { git = "https://github.com/rust-cli/rexpect", rev = "2ed0b1898d7edaf6a85bedbae71a01cc578958fc" }
+revm = { git = "https://github.com/Jayakumar2812/revm.git", branch = "monad-spec-dec" }
+op-revm = { git = "https://github.com/Jayakumar2812/revm.git", branch = "monad-spec-dec" }
+revm-handler = { git = "https://github.com/Jayakumar2812/revm.git", branch = "monad-spec-dec" }
+revm-interpreter = { git = "https://github.com/Jayakumar2812/revm.git", branch = "monad-spec-dec" }
+revm-primitives = { git = "https://github.com/Jayakumar2812/revm.git", branch = "monad-spec-dec" }
+revm-context-interface = { git = "https://github.com/Jayakumar2812/revm.git", branch = "monad-spec-dec" }
+revm-context = { git = "https://github.com/Jayakumar2812/revm.git", branch = "monad-spec-dec" }
+revm-bytecode = { git = "https://github.com/Jayakumar2812/revm.git", branch = "monad-spec-dec" }
+revm-state = { git = "https://github.com/Jayakumar2812/revm.git", branch = "monad-spec-dec" }
+revm-database-interface = { git = "https://github.com/Jayakumar2812/revm.git", branch = "monad-spec-dec" }
+revm-database = { git = "https://github.com/Jayakumar2812/revm.git", branch = "monad-spec-dec" }
+revm-precompile = { git = "https://github.com/Jayakumar2812/revm.git", branch = "monad-spec-dec" }
+revm-inspector = { git = "https://github.com/Jayakumar2812/revm.git", branch = "monad-spec-dec" }
 
 ## alloy-core
 # alloy-dyn-abi = { path = "../../alloy-rs/core/crates/dyn-abi" }
