@@ -155,6 +155,9 @@ pub fn init_progress(len: u64, label: &str) -> indicatif::ProgressBar {
 
 /// True if the network calculates gas costs differently.
 pub fn has_different_gas_calc(chain_id: u64) -> bool {
+    // if chain_id == 143 {
+    //     return true;
+    // }
     if let Some(chain) = Chain::from(chain_id).named() {
         return chain.is_arbitrum()
             || chain.is_elastic()
@@ -164,7 +167,7 @@ pub fn has_different_gas_calc(chain_id: u64) -> bool {
                     | NamedChain::AcalaMandalaTestnet
                     | NamedChain::AcalaTestnet
                     | NamedChain::Etherlink
-                    | NamedChain::EtherlinkTestnet
+                    | NamedChain::EtherlinkShadownet
                     | NamedChain::Karura
                     | NamedChain::KaruraTestnet
                     | NamedChain::Mantle
